@@ -40,9 +40,9 @@ public SparkCounter(
       metrics.shuffleWriteMetrics().writeTime());
   }
 ```
-### 修改TestStatsUtils类的Sets引用为guava的
+### 修改TestStatsUtils类的Sets引用为org.sparkproject.guava.collect的
 ```
-import com.google.common.collect.Sets;
+import org.sparkproject.guava.collect.Sets;
 ```
 ### 修改QueryTracker类的Log依赖为 
 ```
