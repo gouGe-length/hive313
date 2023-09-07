@@ -58,6 +58,8 @@ private static final Marker QUERY_COMPLETE_MARKER = MarkerFactory.getMarker(new 
 mvn install:install-file -DgroupId=org.pentaho -DartifactId=pentaho-aggdesigner-algorithm -Dversion=5.1.5-jhyde -Dpackaging=jar -Dfile=/home/pan/soft/pentaho-aggdesigner-algorithm-5.1.5-jhyde.jar
 
 mvn install:install-file -DgroupId=org.codehaus.groovy -DartifactId=groovy-all -Dversion=2.4.4 -Dpackaging=jar -Dfile=/home/pan/soft/groovy-all-2.4.4.jar
+
+mvn install:install-file -DgroupId=com.google.code.maven-replacer-plugin -DartifactId=replacer -Dversion=1.5.3 -Dpackaging=jar -Dfile=C:\Users\34514\Desktop\replacer-1.5.3.jar
 ```
 
 ### 因为要运行ant程序对应的sh脚本，所以在linux环境下编译，指定Profiles为dist（打包发布）
