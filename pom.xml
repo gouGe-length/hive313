@@ -216,16 +216,16 @@
   </properties>
 
   <repositories>
-    <repository>
-      <id>central</id>
-      <name>central</name>
-      <url>https://repo.maven.apache.org/maven2</url>
-      <layout>default</layout>
-      <releases>
-        <enabled>true</enabled>
-        <checksumPolicy>warn</checksumPolicy>
-      </releases>
-    </repository>
+<!--    <repository>-->
+<!--      <id>central</id>-->
+<!--      <name>central</name>-->
+<!--      <url>https://repo.maven.apache.org/maven2</url>-->
+<!--      <layout>default</layout>-->
+<!--      <releases>-->
+<!--        <enabled>true</enabled>-->
+<!--        <checksumPolicy>warn</checksumPolicy>-->
+<!--      </releases>-->
+<!--    </repository>-->
     <repository>
       <id>aliyunmaven</id>
       <name>spring-plugin</name>
