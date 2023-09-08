@@ -38,6 +38,8 @@ import org.apache.hadoop.hive.metastore.utils.MetaStoreUtils.ColStatsObjWithSour
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static org.apache.hadoop.hive.metastore.columnstats.ColumnsStatsUtils.dateInspectorFromStats;
+
 public class DateColumnStatsAggregator extends ColumnStatsAggregator implements
     IExtrapolatePartStatus {
 
@@ -63,7 +65,7 @@ public class DateColumnStatsAggregator extends ColumnStatsAggregator implements
         LOG.trace("doAllPartitionContainStats for column: {} is: {}", colName, doAllPartitionContainStats);
       }
       DateColumnStatsDataInspector dateColumnStats =
-          (DateColumnStatsDataInspector) cso.getStatsData().getDateStats();
+              dateInspectorFromStats(cso);
       if (dateColumnStats.getNdvEstimator() == null) {
         ndvEstimator = null;
         break;
@@ -96,7 +98,7 @@ public class DateColumnStatsAggregator extends ColumnStatsAggregator implements
       for (ColStatsObjWithSourceInfo csp : colStatsWithSourceInfo) {
         ColumnStatisticsObj cso = csp.getColStatsObj();
         DateColumnStatsDataInspector newData =
-            (DateColumnStatsDataInspector) cso.getStatsData().getDateStats();
+                dateInspectorFromStats(cso);
         lowerBound = Math.max(lowerBound, newData.getNumDVs());
         higherBound += newData.getNumDVs();
         densityAvgSum += (diff(newData.getHighValue(), newData.getLowValue()))
@@ -175,7 +177,7 @@ public class DateColumnStatsAggregator extends ColumnStatsAggregator implements
           ColumnStatisticsObj cso = csp.getColStatsObj();
           String partName = csp.getPartName();
           DateColumnStatsDataInspector newData =
-              (DateColumnStatsDataInspector) cso.getStatsData().getDateStats();
+                  dateInspectorFromStats(cso);
           // newData.isSetBitVectors() should be true for sure because we
           // already checked it before.
           if (indexMap.get(partName) != curIndex) {
