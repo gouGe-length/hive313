@@ -1,4 +1,4 @@
-# Hive313、Hadoop334、Spark341
+# Hive313、Hadoop336、Spark341
 
 ## 主要目的是想替换Hive的执行引擎为Spark
 需要先下载Spark的源码看看Hadoop的版本，log的版本，Scala的版本   
@@ -6,7 +6,7 @@
 
 ### 下载Spark源码 `https://archive.apache.org/dist/spark/spark-3.4.1/`
 ### 下载Hive313源码 `https://dlcdn.apache.org/hive/hive-3.1.3/`
-### 下载Hadoop334包（下载官方编译执行包就行） `https://dlcdn.apache.org/hadoop/common/hadoop-3.3.4/`
+### 下载Hadoop336包（下载官方编译执行包就行） `https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/`
 
 ### 安装maven依赖（hive编译打包依赖），注意修改后面-Dfile路径
 ```
