@@ -26,7 +26,7 @@ mvn clean -DskipTests -Pdist -Dmaven.javadoc.skip=true install
 ## Hive On Spark
 ### 准备资源
 * 下载处理好的Hive313源码或者编译好的包。
-* 下载处理好的Spark源码或者编译好的包，得到一份不带hive的版本Spark，主要目的是将Jars/*.jar上传到HDFS中，供其余节点共享使用。
+* 下载处理好的Spark源码或者编译好的包，得到一份不带hive的版本Spark，主要目的是将Jars/*.jar上传到HDFS中，供其余节点共享使用；直接下载提供的Spark-Jars.zip就好。
 * 下载Spark官方提供的with-Hadoop版本，目的是作为运行节点。
 * 下载Hadoop。
 * 准备好Jdbc驱动，用于Hive存储元数据到DBMS中，如：Mysql；提供的Hive包已经包含。
