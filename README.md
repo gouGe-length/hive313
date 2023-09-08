@@ -1,5 +1,5 @@
 # Hive313、Hadoop336、Spark341
-
+## 使用JDK1.8 、Maven3.8.4
 ## 主要目的是想替换Hive的执行引擎为Spark
 需要先下载Spark的源码看看Hadoop的版本，log的版本，Scala的版本   
 然后再下载对应版本的Hadoop版本，找找share包里面的列举的jar包版本：log、Guava
