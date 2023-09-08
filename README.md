@@ -1,6 +1,7 @@
 # Hive313、Hadoop336、Spark341
 ## 使用JDK1.8 、Maven3.8.4
 ## 主要目的是想替换Hive的执行引擎为Spark
+## 下面是官方源码重新编译的教程（基本不用看了，源码和提供的包已经处理好了），巨多坑，反正整个整合过程不容易
 需要先下载Spark的源码看看Hadoop的版本，log的版本，Scala的版本   
 然后再下载对应版本的Hadoop版本，找找share包里面的列举的jar包版本：log、Guava
 
@@ -21,3 +22,15 @@ mvn install:install-file -DgroupId=com.google.code.maven-replacer-plugin -Dartif
 ```
 mvn clean -DskipTests -Pdist -Dmaven.javadoc.skip=true install
 ```
+
+## Hive On Spark
+### 准备资源
+* 下载处理好的Hive313源码或者编译好的包。
+* 下载处理好的Spark源码或者编译好的包，得到一份不带hive的版本Spark，主要目的是将Jars/*.jar上传到HDFS中，供其余节点共享使用。
+* 下载Spark官方提供的with-Hadoop版本，目的是作为运行节点。
+* 下载Hadoop。
+* 准备好Jdbc驱动，用于Hive存储元数据到DBMS中，如：Mysql；提供的Hive包已经包含。
+### 配置
+配置文件参考：`https://app.yinxiang.com/Home.action?referralCode=ebcc-organic-yxbj&login=true#n=b9d55f37-7bb5-41b5-ad68-3a39251bb459&s=s70&ses=4&sh=2&sds=5&`   
+处理Spark冲突（提供的包已经处理好），用hive lib目录下面的guava替换掉spark-with-Hadoop中jars下面的guava   
+处理Hive与Hadoop冲突（提供的包已经处理好）：需要删除Hive中的log4j-slf4j-impl-2.17.1.jar
