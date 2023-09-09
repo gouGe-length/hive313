@@ -240,7 +240,7 @@ ALTER TABLE default.tacidpart PARTITION(p=10Y) COMPACT 'major';
   private Driver d;
   private void setUpInternal() throws Exception {
     initHiveConf();
-    TxnDbUtil.cleanDb();//todo: api changed in 3.0
+    TxnDbUtil.cleanDb(hiveConf);//todo: api changed in 3.0
     FileUtils.deleteDirectory(new File(getTestDataDir()));
 
     Path workDir = new Path(System.getProperty("test.tmp.dir",
@@ -263,7 +263,7 @@ ALTER TABLE default.tacidpart PARTITION(p=10Y) COMPACT 'major';
     hiveConf.setBoolVar(HiveConf.ConfVars.MERGE_CARDINALITY_VIOLATION_CHECK, true);
     hiveConf.setBoolVar(HiveConf.ConfVars.HIVESTATSCOLAUTOGATHER, false);
     TxnDbUtil.setConfValues(hiveConf);
-    TxnDbUtil.prepDb();//todo: api changed in 3.0
+    TxnDbUtil.prepDb(hiveConf);//todo: api changed in 3.0
     File f = new File(getWarehouseDir());
     if (f.exists()) {
       FileUtil.fullyDelete(f);
