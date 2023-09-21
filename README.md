@@ -17,8 +17,8 @@ mvn install:install-file -DgroupId=com.google.code.maven-replacer-plugin -Dartif
 mvn clean -DskipTests -Pdist -Dmaven.javadoc.skip=true install
 ```
 ## 最后做拷贝
-* （hive-storage-api小于2.7.3版本需要）把打包好的hive-storage-api.jar中的org.apache.hadoop.hive.ql.exec.vector包根路径下面的所有class拷贝到hive-exec.jar对应目录下；
-* 再删除hive-storage-api.jar中的org.apache.hadoop.hive.ql.exec.vector包根路径下面的所有class；
+* （hive-storage-api小于2.7.3版本需要）把打包好的hive-storage-api.jar中的org.apache.hadoop.hive.ql.exec.vector包根路径下面的所有class和org.apache.hadoop.hive.ql.io.filter包拷贝到hive-exec.jar对应目录下；
+* 再删除hive-storage-api.jar中的org.apache.hadoop.hive.ql.exec.vector包根路径和org.apache.hadoop.hive.ql.io.filter包下面的所有class；
 * 得到最终的两个jar：hive-storage-api.jar和hive-exec.jar。
 
 ## Hive On Spark
